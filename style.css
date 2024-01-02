@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    align-items: center;
+    margin-top: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.Logo {
+    font-family: "Jura";
+    font-size: 12em;
+    font-weight: 400;
+
+}
+
+.Sub {
+    font-weight: 700;
+}
+
+#fullstop {
+    color: #AE9CF8;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px
+}
+
+.search_label {
+    display: none;
+}
+
+#Movie_search_box {
+    flex-basis: 100%;
+    font-size: 3.5em;
+    font-family: "Jura";
+    padding: 20px;
+    border: 5px black solid;
+    height: 100px;
+    border-radius: 30px;
+}
+
+#Movie_search_box:focus {
+    outline: none;
+    border-color: #AE9CF8;
+}
+
+#Language_dropdown {
+    height: 100px;
+    flex-grow: 1;
+    font-size: 3em;
+    border-radius: 30px;
+    border: 5px black solid;
+    padding-left: 30px;
+}
+
+#Language_dropdown:focus {
+    outline: none;
+    border-color: #AE9CF8;
+}
+
+form button {
+    flex-grow: 6;
+    border-radius: 30px;
+    border: none;
+    background-color: #AE9CF8;
+}
+
+form button:active {
+    background-color: #9586d1;
+}
+
+
+form button i {
+    color: black;
+    font-size: 3.8em;
+}
+
+.Results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 100px;
+}
+
+.card {
+    display: block;
+    width: 100%;
+    height: 500px;
+    margin-top: 70px;
+    border-radius: 30px;
+    box-shadow: 5px 20px 20px rgb(94, 90, 90);
+}
+
+.card:active {
+    box-shadow: 0px 0px 0px;
+}
+
+.card img {
+    width: 100%;
+    height: 500px;
+    border-radius: 30px;
+}
+
+.card h2 {
+    margin-top: 20px;
+    margin-left: 35px;
+    font-family: "jura";
+    font-weight: 700;
+    font-size: 3em;
+}
+ 
+footer{
+    font-size: 2.3em;
+    font-family: "Jura";
+    font-weight: 700;
+    position: fixed;
+    bottom: 1px;
+    text-align: center;
+    background-color: #AE9CF8;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+}
+
+footer a{
+    font-weight: 700;
+    color:black;
+    text-decoration: underline;
+}
+
+/* Subtitle Page*/
+
+.subtitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    margin-top: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.image_name{
+    width: 100%;
+}
+
+.image_name img{
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    box-shadow: 10px 3px 50px;
+}
+
+.image_name h2{
+    text-align: center;
+    font-family: "Jura";
+}
+
+.subtitle_section{
+    border: 2px black solid;
+    border-radius: 30px;
+    width: 100%;
+    padding: 30px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.subtitle_section .sub1{
+    width: 100%;
+}
+.subtitle_section  h3{
+    border: 3px black solid;
+    padding: 5px;
+    display: inline-block;
+    font-size: 1.5em;
+    font-family: "Jura";
+    border-radius: 15px;
+    width: 82%;
+    height: 50px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.subtitle_section  a{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    width: 50px;
+    height: 45px;
+    background-color: #AE9CF8;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 45px;
+    box-shadow: 2px 0.5px 10px;
+}
+
+.subtitle_section a:active{
+    box-shadow: 0px 0px 0px;
+    
+}
+
+.subtitle .goback{
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    background-color: #AE9CF8;
+    font-size: 1.5em;
+    font-family: "Jura";
+    font-weight: 700;
+    box-shadow: 7px 3px 20px;
+}
+
+.subtitle .goback:active{
+    box-shadow: none;
+}
