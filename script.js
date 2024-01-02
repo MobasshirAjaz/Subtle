@@ -112,11 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const api_key_sub="LW2NSfQScJmcX0RBUxp2Nc6KxYDCorX0";
-        const url_sub="https://api.opensubtitles.com/api/v1/subtitles?tmdb_id=299534";
+        const url_sub=`https://api.opensubtitles.com/api/v1/subtitles?tmdb_id=${tmdb_id}&languages=${language}`;
  
         const options={
             method:'GET',
-            Headers:{"Api-Key":api_key_sub,
+            headers:{"Api-Key":api_key_sub,
                     "X-User-Agent":"Subtle/1.0",
                     "Accept":"application/json"}
         };
