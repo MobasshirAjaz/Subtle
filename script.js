@@ -148,8 +148,8 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("NO SUBTITLES EXIST FOR THIS MOVIE.");
         }
         else{
-            for(i=1;i<=no_of_sub;i++){
-                file_id=response.data[i].attributes.files[0].file_id;
+            for(let i=1;i<=no_of_sub;i++){
+                let file_id=response.data[i].attributes.files[0].file_id;
                 console.log(file_id);
                 const url_sub_download="https://api.opensubtitles.com/api/v1/download";
 
@@ -166,7 +166,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 fetch(url_sub_download,options)
                     .then(response => response.json())
-                    .then(response => console.log(response.link))
+                    .then(response => {
+                        console.log(response);
+                        console.log(i,response.link);
+
+                        const sub_section=document.querySelector(".subtitle_section");
+                        sub_section.innerHTML+=`<div class="sub${i}"> 
+                        <h3>Subtitle ${i}</h3>
+                        <a href="${response.link}" download="Subtitle ${i}"><i class="fa-solid fa-download"></i></a>
+                        </div>`;
+                    })
                     .catch(err => console.error(err));
 
             }
