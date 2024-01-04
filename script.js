@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fetch(url_sub,options)
             .then(response =>response.json())
-            .then(response => console.log(response))
+            .then(extractSub)
             .catch(err => console.error(err));
 
         const goback_button=document.querySelector(".subtitle .goback");
@@ -131,6 +131,46 @@ document.addEventListener("DOMContentLoaded", () => {
             window.history.back();
         });
 
+    }
+
+    function extractSub(response){
+        const api_key_sub="LW2NSfQScJmcX0RBUxp2Nc6KxYDCorX0";
+        console.log(response);
+        no_of_sub=0;
+        if(response.data.length >4){
+            no_of_sub=4;
+        }
+        else{
+            no_of_sub=response.data.length;
+        }
+        console.log(no_of_sub);
+        if(no_of_sub == 0){
+            console.log("NO SUBTITLES EXIST FOR THIS MOVIE.");
+        }
+        else{
+            for(i=1;i<=no_of_sub;i++){
+                file_id=response.data[i].attributes.files[0].file_id;
+                console.log(file_id);
+                const url_sub_download="https://api.opensubtitles.com/api/v1/download";
+
+                const options = {
+                    method: 'POST',
+                    headers: {
+                      'X-User-Agent': 'Subtle/1.0',
+                      'Content-Type': 'application/json',
+                       "Accept": 'application/json',
+                      'Api-Key': api_key_sub
+                    },
+                    body: `{"file_id":${file_id}}`
+                };
+
+                fetch(url_sub_download,options)
+                    .then(response => response.json())
+                    .then(response => console.log(response.link))
+                    .catch(err => console.error(err));
+
+            }
+        }
     }
 
 });
