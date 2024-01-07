@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         else {
             const sub_section = document.querySelector(".subtitle_section");
             sub_section.innerHTML="";
-            for (let i = 1; i <= no_of_sub; i++) {
+            for (let i = 0; i < no_of_sub; i++) {
                 let file_id = response.data[i].attributes.files[0].file_id;
                 console.log(file_id);
                 const url_sub_download = "https://api.opensubtitles.com/api/v1/download";
@@ -191,9 +191,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const url = window.URL.createObjectURL(blob);
                                 
                                 sub_section.innerHTML += `
-                                    <div class="sub${i}"> 
-                                    <h3>Subtitle ${i}</h3>
-                                    <a href="${url}" download="Subtitle ${i}.srt"><i class="fa-solid fa-download"></i></a>
+                                    <div class="sub${i+1}"> 
+                                    <h3>Subtitle ${i+1}</h3>
+                                    <a href="${url}" download="Subtitle ${i+1}.srt"><i class="fa-solid fa-download"></i></a>
                                     </div>`;
                             })
                             .catch(err => console.error(err));
