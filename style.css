@@ -16,6 +16,7 @@ main {
     margin-top: 80px;
     padding-left: 40px;
     padding-right: 40px;
+    padding-bottom: 200px;
 }
 
 .Logo {
@@ -126,11 +127,11 @@ form button i {
 }
  
 footer{
-    font-size: 2.3em;
+    font-size: 2.5em;
     font-family: "Jura";
     font-weight: 700;
     position: fixed;
-    bottom: 1px;
+    bottom: 0px;
     text-align: center;
     background-color: #AE9CF8;
     width: 100%;
@@ -151,7 +152,7 @@ footer a{
     flex-direction: column;
     align-items: center;
     gap: 70px;
-    margin-top: 70px;
+    margin-top: 50px;
     padding-left: 20px;
     padding-right: 20px;
 
@@ -159,6 +160,7 @@ footer a{
 
 .image_name{
     width: 100%;
+    height: 220px;
 }
 
 .image_name img{
@@ -166,6 +168,7 @@ footer a{
     margin-bottom: 10px;
     border-radius: 30px;
     box-shadow: 10px 3px 50px;
+    height: 220px;
 }
 
 .image_name h2{
@@ -230,4 +233,9 @@ footer a{
 
 .subtitle .goback:active{
     box-shadow: none;
+}
+
+.status{
+    font-family: "jura";
+    text-align: center;
 }

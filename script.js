@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("1st file");
 
-        let search_button = document.querySelector("#indexbutton");//added let
+        let search_button = document.querySelector("#indexbutton");
         console.log(search_button, typeof (search_button));
         search_button.addEventListener("click", searched);
 
@@ -61,7 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
             card_container.innerHTML = "";
             response.results.forEach(element => {
                 movie_title = element.original_title;
+                if(element.backdrop_path==null && element.poster_path==null){
+                    image_url="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png";
+                }
+                else if(element.backdrop_path==null){
+                    image_url = base_urls + image_size + "/" + element.poster_path;
+                }
+                else{
                 image_url = base_urls + image_size + "/" + element.backdrop_path;
+                }
                 tmdb_id = element.id;
                 console.log("Poster path", image_url);
                 const card = document.createElement("div");
@@ -148,8 +156,12 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(no_of_sub);
         if (no_of_sub == 0) {
             console.log("NO SUBTITLES EXIST FOR THIS MOVIE.");
+            h2=document.querySelector(".status");
+            h2.innerHTML="No subtitles found."
         }
         else {
+            const sub_section = document.querySelector(".subtitle_section");
+            sub_section.innerHTML="";
             for (let i = 1; i <= no_of_sub; i++) {
                 let file_id = response.data[i].attributes.files[0].file_id;
                 console.log(file_id);
@@ -177,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             .then(blob => {
 
                                 const url = window.URL.createObjectURL(blob);
-                                const sub_section = document.querySelector(".subtitle_section");
+                                
                                 sub_section.innerHTML += `
                                     <div class="sub${i}"> 
                                     <h3>Subtitle ${i}</h3>
