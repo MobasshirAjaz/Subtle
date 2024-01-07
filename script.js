@@ -10,17 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("1st file");
 
         let search_button = document.querySelector("#indexbutton");//added let
-        console.log(search_button,typeof(search_button));
+        console.log(search_button, typeof (search_button));
         search_button.addEventListener("click", searched);
-        
+
         let url = "";
         const api_key = "9297e0ed0a3c81d2d4d578d9d4ff80dd";
 
         function searched() {
-            let dropdown=document.querySelector("#Language_dropdown");
-            let language=dropdown.options[dropdown.selectedIndex].value;
-            console.log("prev lang=",language);
-            sessionStorage.setItem("language",language);
+            let dropdown = document.querySelector("#Language_dropdown");
+            let language = dropdown.options[dropdown.selectedIndex].value;
+            console.log("prev lang=", language);
+            sessionStorage.setItem("language", language);
             console.log("Search entered");
             const search = document.querySelector("#Movie_search_box");
             const search_value = search.value;
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
             response.results.forEach(element => {
                 movie_title = element.original_title;
                 image_url = base_urls + image_size + "/" + element.backdrop_path;
-                tmdb_id=element.id;
+                tmdb_id = element.id;
                 console.log("Poster path", image_url);
                 const card = document.createElement("div");
 
@@ -80,14 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         function subpage(card) {
-            const children=card.children;
-            console.log("children=",children);
+            const children = card.children;
+            console.log("children=", children);
             const img_src = children[0].src;
             const mov_title = children[1].innerHTML;
-            const tmdb_id=children[2].innerHTML;
+            const tmdb_id = children[2].innerHTML;
             sessionStorage.setItem("img_src", img_src);
             sessionStorage.setItem("mov_title", mov_title);
-            sessionStorage.setItem("tmdb id",tmdb_id);
+            sessionStorage.setItem("tmdb id", tmdb_id);
             window.open("subtitle.html", "_self");
 
         }
@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("2nd file");
         const img_src = sessionStorage.getItem("img_src");
         const mov_title = sessionStorage.getItem("mov_title");
-        const tmdb_id=sessionStorage.getItem("tmdb id");
-        const language=sessionStorage.getItem("language");
+        const tmdb_id = sessionStorage.getItem("tmdb id");
+        const language = sessionStorage.getItem("language");
         console.log(tmdb_id);
         console.log(language);
         const sec_img = document.querySelector(".subtitle .image_name img");
@@ -108,73 +108,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sec_img.src = img_src;
         sec_title.innerHTML = mov_title;
-        document.title=mov_title;
+        document.title = mov_title;
 
 
-        const api_key_sub="LW2NSfQScJmcX0RBUxp2Nc6KxYDCorX0";
-        const url_sub=`https://api.opensubtitles.com/api/v1/subtitles?tmdb_id=${tmdb_id}&languages=${language}`;
- 
-        const options={
-            method:'GET',
-            headers:{"Api-Key":api_key_sub,
-                    "X-User-Agent":"Subtle/1.0",
-                    "Accept":"application/json"}
+        const api_key_sub = "LW2NSfQScJmcX0RBUxp2Nc6KxYDCorX0";
+        const url_sub = `https://api.opensubtitles.com/api/v1/subtitles?tmdb_id=${tmdb_id}&languages=${language}`;
+
+        const options = {
+            method: 'GET',
+            headers: {
+                "Api-Key": api_key_sub,
+                "X-User-Agent": "Subtle/1.0",
+                "Accept": "application/json"
+            }
         };
 
-        fetch(url_sub,options)
-            .then(response =>response.json())
+        fetch(url_sub, options)
+            .then(response => response.json())
             .then(extractSub)
             .catch(err => console.error(err));
 
-        const goback_button=document.querySelector(".subtitle .goback");
+        const goback_button = document.querySelector(".subtitle .goback");
         goback_button.addEventListener("click", () => {
             window.history.back();
         });
 
     }
 
-    function extractSub(response){
-        const api_key_sub="LW2NSfQScJmcX0RBUxp2Nc6KxYDCorX0";
+    function extractSub(response) {
+        const api_key_sub = "LW2NSfQScJmcX0RBUxp2Nc6KxYDCorX0";
         console.log(response);
-        no_of_sub=0;
-        if(response.data.length >4){
-            no_of_sub=4;
+        no_of_sub = 0;
+        if (response.data.length > 4) {
+            no_of_sub = 4;
         }
-        else{
-            no_of_sub=response.data.length;
+        else {
+            no_of_sub = response.data.length;
         }
         console.log(no_of_sub);
-        if(no_of_sub == 0){
+        if (no_of_sub == 0) {
             console.log("NO SUBTITLES EXIST FOR THIS MOVIE.");
         }
-        else{
-            for(let i=1;i<=no_of_sub;i++){
-                let file_id=response.data[i].attributes.files[0].file_id;
+        else {
+            for (let i = 1; i <= no_of_sub; i++) {
+                let file_id = response.data[i].attributes.files[0].file_id;
                 console.log(file_id);
-                const url_sub_download="https://api.opensubtitles.com/api/v1/download";
+                const url_sub_download = "https://api.opensubtitles.com/api/v1/download";
 
                 const options = {
                     method: 'POST',
                     headers: {
-                      'X-User-Agent': 'Subtle/1.0',
-                      'Content-Type': 'application/json',
-                       "Accept": 'application/json',
-                      'Api-Key': api_key_sub
+                        'X-User-Agent': 'Subtle/1.0',
+                        'Content-Type': 'application/json',
+                        "Accept": 'application/json',
+                        'Api-Key': api_key_sub
                     },
                     body: `{"file_id":${file_id}}`
                 };
 
-                fetch(url_sub_download,options)
+                fetch(url_sub_download, options)
                     .then(response => response.json())
                     .then(response => {
                         console.log(response);
-                        console.log(i,response.link);
+                        console.log(i, response.link);
 
-                        const sub_section=document.querySelector(".subtitle_section");
-                        sub_section.innerHTML+=`<div class="sub${i}"> 
-                        <h3>Subtitle ${i}</h3>
-                        <a href="${response.link}" download="Subtitle ${i}"><i class="fa-solid fa-download"></i></a>
-                        </div>`;
+                        fetch(response.link)
+                            .then(response => response.blob())
+                            .then(blob => {
+
+                                const url = window.URL.createObjectURL(blob);
+                                const sub_section = document.querySelector(".subtitle_section");
+                                sub_section.innerHTML += `
+                                    <div class="sub${i}"> 
+                                    <h3>Subtitle ${i}</h3>
+                                    <a href="${url}" download="Subtitle ${i}"><i class="fa-solid fa-download"></i></a>
+                                    </div>`;
+                            })
+                            .catch(err => console.error(err));
+
+
                     })
                     .catch(err => console.error(err));
 
