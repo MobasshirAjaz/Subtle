@@ -66,7 +66,7 @@ form {
     font-size: 3em;
     border-radius: 30px;
     border: 5px black solid;
-    padding-left: 30px;
+    padding-left: 20px;
 }
 
 #Language_dropdown:focus {
@@ -262,7 +262,7 @@ footer a{
    }
 
    #Movie_search_box{
-    flex-basis: 86%;
+    flex: 9;
     height: 30px;
     font-size: 1.3em;
     border-radius: 15px;
@@ -271,9 +271,11 @@ footer a{
 
    #Language_dropdown{
     font-size: 1.3em;
-     height: 46px;
-     border-radius: 15px;
-     border: 3px black solid;
+    height: 46px;
+    border-radius: 15px;
+    border: 3px black solid;
+    
+    flex:1;
    }
 
    footer{
@@ -285,6 +287,8 @@ footer a{
    form button{
     border-radius: 12px;
     height: 40px ;
+    flex-basis: 100%;
+
    }
 
    form button i{
