@@ -239,3 +239,120 @@ footer a{
     font-family: "jura";
     text-align: center;
 }
+
+
+@media screen and (min-width: 1024px){
+    /*index.html*/
+
+    main{
+        margin-top: 10px;
+        gap: 40px;
+        padding-left: 70px;
+        padding-right: 70px;
+        padding-bottom: 100px;
+    }
+
+   .Logo{
+    font-size: 5em;
+    
+   }
+
+   form{
+    gap: 10px
+   }
+
+   #Movie_search_box{
+    flex-basis: 86%;
+    height: 30px;
+    font-size: 1.3em;
+    border-radius: 15px;
+    border: 3px black solid;
+   }
+
+   #Language_dropdown{
+    font-size: 1.3em;
+     height: 46px;
+     border-radius: 15px;
+     border: 3px black solid;
+   }
+
+   footer{
+    font-size: 0.8em;
+    height: 20px;
+    line-height: 20px;
+   }
+
+   form button{
+    border-radius: 12px;
+    height: 40px ;
+   }
+
+   form button i{
+    font-size: 2em; 
+   }
+
+   .Results{
+    flex-direction: row;
+    gap: 40px;
+    flex-wrap: wrap;
+   }
+
+   .card{
+        display: inline-block;
+        width: 22%;
+        height: 150px;
+        margin-top: 30px;
+        box-shadow: 5px 5px 20px;
+   }
+
+   .card img{
+
+    height:150px;
+   }
+
+   .card h2{
+    font-size: 1em;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 10px;
+   }
+
+   /*subtitle.html*/
+
+   .subtitle{
+    padding-left: 100px;
+    padding-right: 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+   }
+
+   .image_name{
+    height: 300px;
+    width: 50%;
+   }
+
+   .image_name img{
+    height: 300px;
+   }
+
+   .subtitle_section{
+    width: 40%;
+    flex-grow: 1;
+    height: 300px;
+    padding-top: 20px;
+    padding-left: 40px;
+    flex-wrap: nowrap;
+   }
+
+   .goback{
+    position: absolute;
+    left:45%;
+    bottom: 10%;
+   }
+
+   .subtitle_section a{
+    width: 12%;
+   }
+   
+}
