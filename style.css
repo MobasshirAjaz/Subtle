@@ -8,6 +8,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+body{
+    background-image: url("gradient_1.jpg");
+
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -17,13 +22,15 @@ main {
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 200px;
+    max-width: 1240px;
+    margin: 0 auto;
 }
 
 .Logo {
     font-family: "Jura";
     font-size: 12em;
     font-weight: 400;
-
+    color: rgb(255, 255, 255);
 }
 
 .Sub {
@@ -124,6 +131,7 @@ form button i {
     font-family: "jura";
     font-weight: 700;
     font-size: 3em;
+    color: white;
 }
  
 footer{
@@ -174,10 +182,11 @@ footer a{
 .image_name h2{
     text-align: center;
     font-family: "Jura";
+    color: rgb(255, 255, 255);
 }
 
 .subtitle_section{
-    border: 2px black solid;
+    border: 2px rgb(255, 255, 255) solid;
     border-radius: 30px;
     width: 100%;
     padding: 30px 20px 30px 20px;
@@ -189,7 +198,8 @@ footer a{
     width: 100%;
 }
 .subtitle_section  h3{
-    border: 3px black solid;
+    border: 3px rgb(255, 255, 255) solid;
+    color: white;
     padding: 5px;
     display: inline-block;
     font-size: 1.5em;
@@ -329,6 +339,9 @@ footer a{
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
+    max-width: 1240px;
+    margin: 0 auto;
+    margin-top: 5%;
    }
 
    .image_name{
@@ -351,8 +364,9 @@ footer a{
 
    .goback{
     position: absolute;
-    left:45%;
+    left:50%;
     bottom: 10%;
+    transform: translateX(-50%);
    }
 
    .subtitle_section a{
