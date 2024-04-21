@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Content loaded.");
-
+    let mov_title;// so that i can access it from the second page
     if (document.querySelector(".index")) {
         let base_urls = "";
         let image_size = "";
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else {
         console.log("2nd file");
         const img_src = sessionStorage.getItem("img_src");
-        const mov_title = sessionStorage.getItem("mov_title");
+        mov_title = sessionStorage.getItem("mov_title");
         const tmdb_id = sessionStorage.getItem("tmdb id");
         const language = sessionStorage.getItem("language");
         console.log(tmdb_id);
