@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 sub_section.innerHTML += `
                                     <div class="sub${i+1}"> 
                                     <h3>Subtitle ${i+1}</h3>
-                                    <a href="${url}" download="Subtitle ${i+1}.srt"><i class="fa-solid fa-download"></i></a>
+                                    <a href="${url}" download="Subtitle ${mov_title}.srt"><i class="fa-solid fa-download"></i></a>
                                     </div>`;
                             })
                             .catch(err => console.error(err));
